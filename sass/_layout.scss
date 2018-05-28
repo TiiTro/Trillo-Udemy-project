@@ -32,10 +32,51 @@
 
 .hotel-view {
   flex: 1;
-
-  height: 80rem;
   background-color: #fff;
+}
 
 
+////////////////////////////////////////////////////
+////// HOTEL OVERVIEW - details /////////
+////////////////////////////////////////////////////
 
+.detail {
+  display: flex;
+  background-color: var(--color-grey-light-1);
+  padding: 4.5rem;
+  border-bottom: var(--line);
+}
+
+
+.description {
+  font-size: 1.4rem;
+  background-color: #fff;
+  flex: 0 0 60%;
+  padding: 3rem;
+  margin-right: 4.5rem;
+  box-shadow: var(--shadow-light);
+}
+
+
+.user-reviews {
+  //display: flex;
+  flex: 1;
+  background-color: yellowgreen;
+  //flex-direction: column;
+  //justify-content: space-evenly;
+  //align-items: center;
+
+
+  /*&-1 {
+    height: 20px;
+    width: 20px;
+    background-color: blue;
+    margin-bottom: 10px;
+  }
+
+  &-2 {
+    height: 20px;
+    width: 20px;
+    background-color: blue;
+  }*/
 }
