@@ -13,6 +13,7 @@ Grey dark 3: #999
 
 /* universal reset */
 
+// CSS variables need to be defined inside the root selector to be applied to the whole document
 :root {
   --color-primary: #eb2f64;
   --color-primary-light: #FF3366;
@@ -35,8 +36,15 @@ Grey dark 3: #999
   --gradient-background-to-right: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
 
   --gradient-background-to-left: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
-
 }
+
+//Defining Sass-variables to be used w media queries, because you can't use css variables (above) in media queries
+$bp-largest: 75em; // 1200px (1200/16)
+$bp-large: 68.75em; //1100px (1100/16)
+$bp-medium: 56.25em; //900px (900/16)
+
+
+
 
 * {
   margin: 0;
@@ -52,6 +60,10 @@ Grey dark 3: #999
 html {
   box-sizing: border-box;
   font-size: 62.5%; // 1rem = 10px, 10px / 16px 0 62.5%
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%;
+  }
 }
 
 body {
@@ -65,5 +77,9 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
+}
 
+::selection {
+  background: var(--color-primary-light);
+  color: #fff;
 }
