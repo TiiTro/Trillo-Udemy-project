@@ -259,11 +259,21 @@ body {
     display: flex;
     align-items: center;
     font-size: 1.2rem; }
+    @media only screen and (max-width: 26.62em) {
+      .overview__location {
+        flex-direction: column; } }
   .overview__location-icon {
     width: 1.75rem;
     height: 1.75rem;
     fill: var(--color-primary);
     margin-right: .5rem; }
+    @media only screen and (max-width: 35.7em) {
+      .overview__location-icon {
+        display: none; } }
+    @media only screen and (max-width: 26.62em) {
+      .overview__location-icon {
+        display: inline-block;
+        margin-bottom: 2px; } }
   .overview__rating {
     display: flex;
     flex-direction: column;
@@ -287,10 +297,16 @@ body {
         font-size: 1.8rem; } }
   .overview__rating-count {
     text-transform: uppercase;
-    font-size: .9rem; }
+    font-size: .9rem;
+    text-align: center; }
     @media only screen and (max-width: 35.7em) {
       .overview__rating-count {
         font-size: .5rem; } }
+    @media only screen and (max-width: 26.62em) {
+      .overview__rating-count {
+        line-height: 1.5rem;
+        font-size: .9rem;
+        margin-top: .5rem; } }
 
 .btn-inline {
   position: relative;
@@ -303,6 +319,9 @@ body {
   background-color: transparent;
   cursor: pointer;
   transition: transform .2s; }
+  @media only screen and (max-width: 26.62em) {
+    .btn-inline {
+      border-bottom: none; } }
   .btn-inline span {
     margin-left: 3px;
     transition: all .2s; }
@@ -351,11 +370,16 @@ body {
     width: 1rem;
     display: inline-block;
     margin-right: .7rem;
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/SVG/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/SVG/chevron-thin-right.svg);
-    mask-size: cover; }
+    background-image: url(../img/SVG/chevron-thin-right.svg);
+    background-size: cover; }
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      .list__item::before {
+        background-color: var(--color-primary);
+        -webkit-mask-image: url(../img/SVG/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-image: url(../img/SVG/chevron-thin-right.svg);
+        mask-size: cover;
+        background-image: none; } }
 
 .recommend {
   display: flex;
@@ -436,6 +460,9 @@ body {
     font-weight: 300;
     color: var(--color-grey-dark-3);
     margin-top: 1rem; }
+    @media only screen and (max-width: 31.25em) {
+      .cta .cta__book-now {
+        text-align: center; } }
 
 .btn {
   border: none;

@@ -309,6 +309,8 @@
     margin-right: auto;
     display: flex;
 
+
+
     &-icon {
       width: 1.75rem;
       height: 1.75rem;
@@ -320,6 +322,10 @@
     display: flex;
     align-items: center;
     font-size: 1.2rem;
+
+    @media only screen and (max-width: $bp-extra-smallest) {
+      flex-direction: column;
+    }
   }
 
   &__location-icon {
@@ -327,6 +333,17 @@
     height: 1.75rem;
     fill: var(--color-primary);
     margin-right: .5rem;
+
+    @media only screen and (max-width: $bp-small) {
+      display: none;
+    }
+
+    @media only screen and (max-width: $bp-extra-smallest) {
+      display: inline-block;
+      margin-bottom: 2px;
+    }
+
+
   }
 
   &__rating {
@@ -361,9 +378,17 @@
   &__rating-count {
     text-transform: uppercase;
     font-size: .9rem;
+    text-align: center;
+
 
     @media only screen and (max-width: $bp-small) {
       font-size: .5rem;
+    }
+
+    @media only screen and (max-width: $bp-extra-smallest) {
+      line-height: 1.5rem;
+      font-size: .9rem;
+      margin-top: .5rem;
     }
   }
 }
@@ -382,6 +407,10 @@
   background-color: transparent;
   cursor: pointer;
   transition: transform .2s;
+
+  @media only screen and (max-width: $bp-extra-smallest) {
+    border-bottom: none;
+  }
 
   & span {
     margin-left: 3px;
@@ -456,16 +485,19 @@
     display: inline-block;
     margin-right: .7rem;
 
-    // works w older browsers
-    //background-image: url(../img/SVG/chevron-thin-right.svg);
-    //background-size: cover;
+    // works w older browsers, svg will show as black
+    background-image: url(../img/SVG/chevron-thin-right.svg);
+    background-size: cover;
 
     // for NEWER browsers, use MASKS so can edit color
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/SVG/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/SVG/chevron-thin-right.svg);
-    mask-size: cover;
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/SVG/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/SVG/chevron-thin-right.svg);
+      mask-size: cover;
+      background-image: none;
+    }
   }
 
     /*&-icon {
@@ -592,6 +624,10 @@
     font-weight: 300;
     color: var(--color-grey-dark-3);
     margin-top: 1rem;
+
+    @media only screen and (max-width: $bp-smallest) {
+      text-align: center;
+    }
 
   }
 }
